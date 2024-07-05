@@ -40,7 +40,7 @@ public final class RemoteFeedLoader {
             switch result {
                 case let .success(data, response):
                     do {
-                        let items = try NewsItemMapper.map(data, response)
+                        let items = try FeedItemMapper.map(data, response)
                         completion(.success(items))
                     } catch {
                         completion(.failure(.invalidData))
@@ -52,7 +52,7 @@ public final class RemoteFeedLoader {
     }
 }
 
-private class NewsItemMapper {
+private class FeedItemMapper {
     private struct Root: Decodable {
         let items: [Item]
     }
