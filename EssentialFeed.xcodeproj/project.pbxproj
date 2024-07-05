@@ -13,6 +13,7 @@
 		B436AC1B2C33D125007A22A7 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436AC1A2C33D125007A22A7 /* FeedLoader.swift */; };
 		B456DE5D2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456DE5C2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift */; };
 		B456DE622C33F7F300F1F506 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456DE612C33F7F300F1F506 /* RemoteFeedLoader.swift */; };
+		B4E4258C2C37C55200AE6319 /* HTTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4258B2C37C55200AE6319 /* HTTClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		B436AC1A2C33D125007A22A7 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		B456DE5C2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTest.swift; sourceTree = "<group>"; };
 		B456DE612C33F7F300F1F506 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		B4E4258B2C37C55200AE6319 /* HTTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		B456DE602C33F7E100F1F506 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				B4E4258B2C37C55200AE6319 /* HTTClient.swift */,
 				B456DE612C33F7F300F1F506 /* RemoteFeedLoader.swift */,
 			);
 			path = "Feed API";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B436AC1B2C33D125007A22A7 /* FeedLoader.swift in Sources */,
+				B4E4258C2C37C55200AE6319 /* HTTClient.swift in Sources */,
 				B456DE622C33F7F300F1F506 /* RemoteFeedLoader.swift in Sources */,
 				B436AC192C33CFCD007A22A7 /* FeedItem.swift in Sources */,
 			);
