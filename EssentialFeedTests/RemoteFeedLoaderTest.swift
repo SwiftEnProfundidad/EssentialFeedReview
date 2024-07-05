@@ -98,6 +98,19 @@ final class RemoteFeedLoaderTest: XCTestCase {
         })
     }
     
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let client = HTTPClientSpy()
+        var sut: RemoteFeedLoader? = RemoteFeedLoader(url: URL(string: "http://a-url.com")!, client: client)
+        
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut?.load { capturedResults.append($0) }
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: makeItemsJSON(items: []))
+        
+        XCTAssertTrue(capturedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!,
@@ -118,8 +131,7 @@ final class RemoteFeedLoaderTest: XCTestCase {
         }
     }
     
-    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL)
-    -> (model: FeedItem, json: [String: Any]) {
+    private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
         let item = FeedItem(
             id: id,
             description: description,
