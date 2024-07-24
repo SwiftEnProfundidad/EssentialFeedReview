@@ -31,8 +31,7 @@
       shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B436AC072C33CEF7007A22A7"
