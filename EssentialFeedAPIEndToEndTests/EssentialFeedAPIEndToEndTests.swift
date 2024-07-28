@@ -1,6 +1,6 @@
 //
-//  SwiftNewsAPIEndToEndTests.swift
-//  SwiftNewsAPIEndToEndTests
+//  EssentialFeedAPIEndToEndTests.swift
+//  EssentialFeedAPIEndToEndTests
 //
 //  Created by Juan Carlos merlos albarracin on 24/7/24.
 //
@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class SwiftNewsAPIEndToEndTests: XCTestCase {
+final class EssentialFeedAPIEndToEndTests: XCTestCase {
   
   func test_endToEndTestServerGETNewsResult_matchesFixedTestAccountData() {
     switch getFeedResult() {
