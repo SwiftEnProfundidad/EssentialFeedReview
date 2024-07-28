@@ -14,6 +14,8 @@
 		B456DE5D2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456DE5C2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift */; };
 		B456DE622C33F7F300F1F506 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456DE612C33F7F300F1F506 /* RemoteFeedLoader.swift */; };
 		B45FE7DA2C510AB00020BCC1 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45FE7D92C510AB00020BCC1 /* URLSessionHTTPClient.swift */; };
+		B45FE7E22C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45FE7E12C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.swift */; };
+		B45FE7E32C5116A60020BCC1 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B436AC002C33CEF7007A22A7 /* EssentialFeed.framework */; };
 		B4A4C7482C45B61A008A422A /* URLSessionHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4C7472C45B61A008A422A /* URLSessionHTTPClientTest.swift */; };
 		B4C1CFE22C4C46A800439C0B /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C1CFE12C4C46A800439C0B /* XCTestCase+MemoryLeakTracking.swift */; };
 		B4E4258C2C37C55200AE6319 /* HTTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E4258B2C37C55200AE6319 /* HTTClient.swift */; };
@@ -22,6 +24,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		B436AC0A2C33CEF7007A22A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B436ABF72C33CEF7007A22A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B436ABFF2C33CEF7007A22A7;
+			remoteInfo = EssentialFeed;
+		};
+		B45FE7E42C5116A60020BCC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B436ABF72C33CEF7007A22A7 /* Project object */;
 			proxyType = 1;
@@ -39,6 +48,8 @@
 		B456DE5C2C33DE6E00F1F506 /* RemoteFeedLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTest.swift; sourceTree = "<group>"; };
 		B456DE612C33F7F300F1F506 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		B45FE7D92C510AB00020BCC1 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		B45FE7DF2C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftNewsAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B45FE7E12C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNewsAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		B4A4C7472C45B61A008A422A /* URLSessionHTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTest.swift; sourceTree = "<group>"; };
 		B4C1CFE12C4C46A800439C0B /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		B4E4258B2C37C55200AE6319 /* HTTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTClient.swift; sourceTree = "<group>"; };
@@ -61,6 +72,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B45FE7DC2C5116A60020BCC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B45FE7E32C5116A60020BCC1 /* EssentialFeed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +88,7 @@
 			children = (
 				B436AC022C33CEF7007A22A7 /* EssentialFeed */,
 				B436AC0C2C33CEF7007A22A7 /* EssentialFeedTests */,
+				B45FE7E02C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests */,
 				B436AC012C33CEF7007A22A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +98,7 @@
 			children = (
 				B436AC002C33CEF7007A22A7 /* EssentialFeed.framework */,
 				B436AC082C33CEF7007A22A7 /* EssentialFeedTests.xctest */,
+				B45FE7DF2C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +139,14 @@
 				B45FE7D92C510AB00020BCC1 /* URLSessionHTTPClient.swift */,
 			);
 			path = "Feed API";
+			sourceTree = "<group>";
+		};
+		B45FE7E02C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests */ = {
+			isa = PBXGroup;
+			children = (
+				B45FE7E12C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.swift */,
+			);
+			path = SwiftNewsAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
 		B4C1CFE02C4C467200439C0B /* Helpers */ = {
@@ -188,6 +217,24 @@
 			productReference = B436AC082C33CEF7007A22A7 /* EssentialFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B45FE7DE2C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B45FE7E62C5116A60020BCC1 /* Build configuration list for PBXNativeTarget "SwiftNewsAPIEndToEndTests" */;
+			buildPhases = (
+				B45FE7DB2C5116A60020BCC1 /* Sources */,
+				B45FE7DC2C5116A60020BCC1 /* Frameworks */,
+				B45FE7DD2C5116A60020BCC1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B45FE7E52C5116A60020BCC1 /* PBXTargetDependency */,
+			);
+			name = SwiftNewsAPIEndToEndTests;
+			productName = SwiftNewsAPIEndToEndTests;
+			productReference = B45FE7DF2C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -203,6 +250,9 @@
 						LastSwiftMigration = 1600;
 					};
 					B436AC072C33CEF7007A22A7 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					B45FE7DE2C5116A60020BCC1 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -222,6 +272,7 @@
 			targets = (
 				B436ABFF2C33CEF7007A22A7 /* EssentialFeed */,
 				B436AC072C33CEF7007A22A7 /* EssentialFeedTests */,
+				B45FE7DE2C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +286,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B436AC062C33CEF7007A22A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B45FE7DD2C5116A60020BCC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,6 +325,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B45FE7DB2C5116A60020BCC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B45FE7E22C5116A60020BCC1 /* SwiftNewsAPIEndToEndTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -274,6 +340,11 @@
 			isa = PBXTargetDependency;
 			target = B436ABFF2C33CEF7007A22A7 /* EssentialFeed */;
 			targetProxy = B436AC0A2C33CEF7007A22A7 /* PBXContainerItemProxy */;
+		};
+		B45FE7E52C5116A60020BCC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B436ABFF2C33CEF7007A22A7 /* EssentialFeed */;
+			targetProxy = B45FE7E42C5116A60020BCC1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -509,6 +580,36 @@
 			};
 			name = Release;
 		};
+		B45FE7E72C5116A60020BCC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z273P8K3M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.swiftindepth.SwiftNewsAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B45FE7E82C5116A60020BCC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z273P8K3M7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.swiftindepth.SwiftNewsAPIEndToEndTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -535,6 +636,15 @@
 			buildConfigurations = (
 				B436AC162C33CEF7007A22A7 /* Debug */,
 				B436AC172C33CEF7007A22A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B45FE7E62C5116A60020BCC1 /* Build configuration list for PBXNativeTarget "SwiftNewsAPIEndToEndTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B45FE7E72C5116A60020BCC1 /* Debug */,
+				B45FE7E82C5116A60020BCC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
