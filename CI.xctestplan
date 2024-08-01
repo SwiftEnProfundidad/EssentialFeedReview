@@ -2,14 +2,14 @@
   "configurations" : [
     {
       "id" : "7210F4CC-3ECD-4215-9EC0-F9F3C585AF22",
-      "name" : "Configuration 1",
+      "name" : "Test Scheme Action",
       "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {

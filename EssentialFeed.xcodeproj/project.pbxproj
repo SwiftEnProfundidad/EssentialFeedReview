@@ -113,9 +113,9 @@
 		B436AC022C33CEF7007A22A7 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B436AC1C2C33D573007A22A7 /* Feed Feature */,
 				B456DE602C33F7E100F1F506 /* Feed API */,
 				B436AC032C33CEF7007A22A7 /* EssentialFeed.h */,
-				B436AC1C2C33D573007A22A7 /* Feed Feature */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
