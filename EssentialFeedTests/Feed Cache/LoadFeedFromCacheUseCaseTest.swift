@@ -41,6 +41,17 @@ final class LoadFeedFromCacheUseCaseTest: XCTestCase {
     }
   }
   
+  func test_load_deliversCachedImagesOnLessThanSevenDaysOldCache() {
+    let feed = uniqueImageFeeds()
+    let currentDate = Date()
+    let lessThanSevenDaysOldTimestamp = currentDate.adding(days: -7).adding(seconds: 1)
+    let (sut, store) = makeSUT { currentDate }
+    
+    expect(sut, toCompleteWith: .success(feed.models)) {
+      store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
+    }
+  }
+  
   // MARK: - Helpers
   
   private func makeSUT(
@@ -59,25 +70,47 @@ final class LoadFeedFromCacheUseCaseTest: XCTestCase {
     toCompleteWith expectedResult: LocalFeedLoader.LoadResult,
     when action: () -> Void,
     file: StaticString = #filePath, line: UInt = #line) {
-    let exp = expectation(description: "Wait for load to completion")
-    
-    sut.load { receivedResult in
-      switch (receivedResult, expectedResult) {
-        case let (.success(receivedImages), .success(expectedImages)):
-          XCTAssertEqual(receivedImages, expectedImages, file: file, line: line)
-          
-        case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
-          XCTAssertEqual(receivedError, expectedError, file: file, line: line)
-          
-        default:
-          XCTFail("Expected \(expectedResult), got \(String(describing: receivedResult)) instead", file: file, line: line)
+      let exp = expectation(description: "Wait for load to completion")
+      
+      sut.load { receivedResult in
+        switch (receivedResult, expectedResult) {
+          case let (.success(receivedImages), .success(expectedImages)):
+            XCTAssertEqual(receivedImages, expectedImages, file: file, line: line)
+            
+          case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+            XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            
+          default:
+            XCTFail("Expected \(expectedResult), got \(String(describing: receivedResult)) instead", file: file, line: line)
+        }
+        exp.fulfill()
       }
-      exp.fulfill()
+      
+      // En lugar de invocar un método a la `store` directamente, invocamos la acción
+      action()
+      wait(for: [exp], timeout: 1.0)
     }
-    
-    // En lugar de invocar un método a la `store` directamente, invocamos la acción
-    action()
-    wait(for: [exp], timeout: 1.0)
+  
+  private func uniqueImageFeeds() -> (models: [FeedImage], local: [LocalFeedImage]) {
+    let models = [uniqueFeed(), uniqueFeed()]
+    let local = models.map { LocalFeedImage(
+      id: $0.id,
+      description: $0.description,
+      location: $0.location,
+      url: $0.url) }
+    return (models, local)
+  }
+  
+  private func uniqueFeed() -> FeedImage {
+    return FeedImage(
+      id: UUID(),
+      description: "any",
+      location: "any",
+      url: anyURL())
+  }
+  
+  private func anyURL() -> URL {
+    return URL(string: "http://any-url.com")!
   }
   
   private func anyNSError() -> NSError {
@@ -85,3 +118,17 @@ final class LoadFeedFromCacheUseCaseTest: XCTestCase {
   }
   
 }
+
+private extension Date {
+  func adding(days: Int) -> Date {
+    return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+  }
+  
+  func adding(seconds: TimeInterval) -> Date {
+    return self + seconds
+  }
+}
+
+
+
+
