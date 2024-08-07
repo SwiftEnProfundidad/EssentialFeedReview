@@ -18,8 +18,8 @@ public final class LocalFeedLoader {
     self.currentDate = currentDate
   }
   
-  public func load() {
-    store.retrieve()
+  public func load(completion: @escaping (Error?) -> Void) {
+    store.retrieve(completion: completion)
   }
   
   public func save(_ feeds: [FeedImage], completion: @escaping (SaveResult) -> Void) {
