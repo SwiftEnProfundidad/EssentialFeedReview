@@ -31,11 +31,16 @@ public final class LocalFeedLoader {
         case let .found(feeds, timestamp) where self.validate(timestamp):
           completion(.success(feeds.toModels()))
           
-        case .found, .empty:
+        case .found:
+          self.store.deleteCachedFeed { _ in }
+          completion(.success([]))
+          
+        case .empty:
           completion(.success([]))
       }
     }
   }
+
   
   public func save(_ feeds: [FeedImage], completion: @escaping (SaveResult) -> Void) {
     store.deleteCachedFeed { [weak self] error in
