@@ -18,6 +18,10 @@ public final class LocalFeedLoader {
     self.currentDate = currentDate
   }
   
+  public func load() {
+    store.retrieve()
+  }
+  
   public func save(_ feeds: [FeedImage], completion: @escaping (SaveResult) -> Void) {
     store.deleteCachedFeed { [weak self] error in
       guard let self = self else { return }
