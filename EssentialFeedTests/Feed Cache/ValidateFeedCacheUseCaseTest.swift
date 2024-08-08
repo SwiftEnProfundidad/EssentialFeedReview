@@ -54,6 +54,43 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
     
     XCTAssertEqual(store.receivedMessages, [.retrieve])
   }
+  
+  func test_load_hasNoSideEffectsOnSevenDaysOldCache() {
+    let feeds = uniqueImageFeeds()
+    let fixedCurrentDate = Date()
+    let sevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7)
+    let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+    
+    sut.load { _ in }
+    store.completeRetrieval(with: feeds.local, timestamp: sevenDaysOldTimestamp)
+    
+    XCTAssertEqual(store.receivedMessages, [.retrieve])
+  }
+  
+  func test_validateCache_deletesSevenDaysOldCache() {
+    let feeds = uniqueImageFeeds()
+    let fixedCurrentDate = Date()
+    let sevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7)
+    let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+    
+    sut.validateCache()
+    store.completeRetrieval(with: feeds.local, timestamp: sevenDaysOldTimestamp)
+    
+    XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
+  }
+  
+  func test_validateCache_deleteMoreThanSevenDaysOldCache() {
+    let feeds = uniqueImageFeeds()
+    let fixedCurrentDate = Date()
+    let moreThanSevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: -1)
+    let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+    
+    sut.validateCache()
+    store.completeRetrieval(with: feeds.local, timestamp: moreThanSevenDaysOldTimestamp)
+    
+    XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCacheFeed])
+  }
+  
   // MARK: - Helpers
   
   private func makeSUT(
