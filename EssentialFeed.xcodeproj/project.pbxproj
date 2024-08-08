@@ -206,9 +206,9 @@
 		B4A0AB792C62EB1400D8A0E4 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
+				B415D4DD2C6367CC0047D9D3 /* LocalFeedImage.swift */,
 				B4A0AB7A2C62EB2700D8A0E4 /* LocalFeedLoader.swift */,
 				B4A0AB7C2C62EBD300D8A0E4 /* FeedStore.swift */,
-				B415D4DD2C6367CC0047D9D3 /* LocalFeedImage.swift */,
 				B413A1142C65238C00579E30 /* FeedCachePolicy.swift */,
 			);
 			path = "Feed Cache";
