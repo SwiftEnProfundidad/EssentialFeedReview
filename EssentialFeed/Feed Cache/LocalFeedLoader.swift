@@ -11,7 +11,6 @@ public final class LocalFeedLoader {
   private let store: FeedStore
   private let currentDate: () -> Date
   private let calendar = Calendar(identifier: .gregorian)
-  private var maxCacheAgeInDays: Int { return 7 }
   
   public typealias SaveResult = Error?
   public typealias LoadResult = LoadFeedResult
@@ -21,6 +20,31 @@ public final class LocalFeedLoader {
     self.currentDate = currentDate
   }
   
+  private var maxCacheAgeInDays: Int { return 7 }
+  
+  private func validate(_ timestamp: Date) -> Bool {
+    guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
+      return false
+    }
+    return currentDate() < maxCacheAge
+  }
+}
+
+extension LocalFeedLoader {
+  public func save(_ feeds: [FeedImage], completion: @escaping (SaveResult) -> Void) {
+    store.deleteCachedFeed { [weak self] error in
+      guard let self = self else { return }
+      
+      if let cacheDeletionError = error {
+        completion(cacheDeletionError)
+      } else {
+        self.cache(feeds, with: completion)
+      }
+    }
+  }
+}
+
+extension LocalFeedLoader {
   public func load(completion: @escaping (LoadResult) -> Void) {
     store.retrieve { [weak self] result in
       guard let self = self else { return }
@@ -36,32 +60,15 @@ public final class LocalFeedLoader {
     }
   }
   
-  public func save(_ feeds: [FeedImage], completion: @escaping (SaveResult) -> Void) {
-    store.deleteCachedFeed { [weak self] error in
-      guard let self = self else { return }
-      
-      if let cacheDeletionError = error {
-        completion(cacheDeletionError)
-      } else {
-        self.cache(feeds, with: completion)
-      }
-    }
-  }
-  
   public func cache(_ feeds: [FeedImage], with completion: @escaping (SaveResult) -> Void) {
     store.insert(feeds.toLocalFeedItem(), timestamp: currentDate()) { [weak self] error in
       guard self != nil else { return }
       completion(error)
     }
   }
-  
-  private func validate(_ timestamp: Date) -> Bool {
-    guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
-      return false
-    }
-    return currentDate() < maxCacheAge
-  }
-  
+}
+
+extension LocalFeedLoader {
   public func validateCache() {
     store.retrieve { [weak self] result in
       guard let self = self else { return }
