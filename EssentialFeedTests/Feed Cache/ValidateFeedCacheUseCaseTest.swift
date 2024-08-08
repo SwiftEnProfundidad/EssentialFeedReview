@@ -1,5 +1,5 @@
 //
-//  ValidateFeedCacheUseCase.swift
+//  ValidateFeedCacheUseCaseTest.swift
 //  EssentialFeedTests
 //
 //  Created by Juan Carlos merlos albarracin on 8/8/24.
@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class ValidateFeedCacheUseCase: XCTestCase {
+final class ValidateFeedCacheUseCaseTest: XCTestCase {
   
   func test_init_doesNotMessageStoreUponCreation() {
     let (_, store) = makeSUT()
