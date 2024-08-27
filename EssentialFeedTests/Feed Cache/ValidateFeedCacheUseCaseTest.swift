@@ -58,7 +58,7 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   func test_load_hasNoSideEffectsOnSevenDaysOldCache() {
     let feeds = uniqueImageFeeds()
     let fixedCurrentDate = Date()
-    let sevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7)
+    let sevenDaysOldTimestamp = fixedCurrentDate.minusFeedCacheMaxAge()
     let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
     
     sut.load { _ in }

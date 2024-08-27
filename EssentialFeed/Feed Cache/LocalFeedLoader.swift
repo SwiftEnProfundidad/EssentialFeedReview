@@ -39,9 +39,11 @@ extension LocalFeedLoader: FeedLoader {
   public func load(completion: @escaping (LoadResult) -> Void) {
     store.retrieve { [weak self] result in
       guard let self = self else { return }
+      
       switch result {
         case let .failure(error):
           completion(.failure(error))
+          
         case let .found(feeds, timestamp) where FeedCachePolicy.validate(timestamp, against: currentDate()):
           completion(.success(feeds.toModels()))
           
