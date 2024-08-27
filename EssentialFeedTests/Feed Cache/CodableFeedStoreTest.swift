@@ -53,7 +53,7 @@ class CodableFeedStore {
     
     let decoder = JSONDecoder()
     let cache = try! decoder.decode(Cache.self, from: data)
-    completion(.found(feeds: cache.localFeeds, timestamp: cache.timestamp))
+    completion(.found(feed: cache.localFeeds, timestamp: cache.timestamp))
   }
   
   func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
@@ -81,19 +81,8 @@ final class CodableFeedStoreTest: XCTestCase {
   
   func test_retrieve_deliversEmptyOnEmptyCache() {
     let sut = makeSUT()
-    let exp = expectation(description: "Wait for cache retrieval")
     
-    sut.retrieve { result in
-      switch result {
-        case .empty:
-          break
-          
-        default:
-          XCTFail("Expected empty cache, got \(result) instead")
-      }
-      exp.fulfill()
-    }
-    wait(for: [exp], timeout: 1.0)
+    expect(sut, toRetrieve: .empty)
   }
   
   func test_retrieve_hasNoSideEffectsOnEmptyCache() {
@@ -123,20 +112,41 @@ final class CodableFeedStoreTest: XCTestCase {
     
     sut.insert(feed, timestamp: timestamp) { insertError in
       XCTAssertNil(insertError, "Expected to insert cache successfully")
-    }
-    
-    sut.retrieve { retrieveResult in
-      switch retrieveResult {
-        case let .found(feeds: retrieveFeed, timestamp: retrieveTimestamp):
-          XCTAssertEqual(retrieveFeed, feed)
-          XCTAssertEqual(retrieveTimestamp, timestamp)
-          
-        default:
-          XCTFail("Expected found result with \(feed) and timestamp \(timestamp),got \(retrieveResult) instead")
-      }
       exp.fulfill()
     }
     wait(for: [exp], timeout: 1.0)
+    
+    expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
+  }
+  
+  func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
+    let sut = makeSUT()
+    let feed = uniqueImageFeeds().local
+    let timestamp = Date()
+    let exp = expectation(description: "Wait for cache retrieval")
+    
+    sut.insert(feed, timestamp: timestamp) { insertionError in
+      XCTAssertNil(insertionError, "Expected to insert cache successfully")
+      exp.fulfill()
+    }
+    wait(for: [exp], timeout: 1.0)
+    
+    expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
+  }
+  
+  func test_retrieve_hasNoSideEffectsOnNonEmptyCaches() {
+    let sut = makeSUT()
+    let feed = uniqueImageFeeds().local
+    let timestamp = Date()
+    let exp = expectation(description: "Wait for cache retrieval")
+    
+    sut.insert(feed, timestamp: timestamp) { insertionError in
+      XCTAssertNil(insertionError, "Expected to insert cache successfully")
+      exp.fulfill()
+    }
+    wait(for: [exp], timeout: 1.0)
+    
+    expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
   }
   
   // MARK: - Helpers
@@ -148,11 +158,36 @@ final class CodableFeedStoreTest: XCTestCase {
     return sut
   }
   
+  private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedNewsResult, file: StaticString = #file, line: UInt = #line) {
+    let exp = expectation(description: "Wait for cache retrieval")
+    
+    sut.retrieve { retrievedResult in
+      switch (expectedResult, retrievedResult) {
+        case (.empty, .empty):
+          break
+          
+        case let (.found(expectedNews, expectedTimestamp),
+                  .found(retrievedNews, retrievedTimestamp)):
+          XCTAssertEqual(retrievedNews, expectedNews, file: file, line: line)
+          XCTAssertEqual(retrievedTimestamp, expectedTimestamp,
+                         file: file, line: line)
+          
+        default:
+          XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
+      }
+      
+      exp.fulfill()
+    }
+    
+    wait(for: [exp], timeout: 1.0)
+  }
+  
+  
   private func testSpecificStoreURL() -> URL {
     let storeURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(type(of: self)).store")
     return storeURL
   }
-
+  
   private func setupEmptyStoreState() {
     deleteStoreArtifacts()
   }
@@ -164,5 +199,5 @@ final class CodableFeedStoreTest: XCTestCase {
   private func deleteStoreArtifacts() {
     try? FileManager.default.removeItem(at: testSpecificStoreURL())
   }
-
+  
 }
