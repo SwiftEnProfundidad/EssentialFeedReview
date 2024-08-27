@@ -91,7 +91,7 @@ final class CodableFeedStoreTest: XCTestCase {
     expect(sut, toRetrieveTwice: .empty)
   }
   
-  func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
+  func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
     let sut = makeSUT()
     let feed = uniqueImageFeeds().local
     let timestamp = Date()
@@ -138,8 +138,7 @@ final class CodableFeedStoreTest: XCTestCase {
         case (.empty, .empty):
           break
           
-        case let (.found(expectedNews, expectedTimestamp),
-                  .found(retrievedNews, retrievedTimestamp)):
+        case let (.found(expectedNews, expectedTimestamp), .found(retrievedNews, retrievedTimestamp)):
           XCTAssertEqual(retrievedNews, expectedNews, file: file, line: line)
           XCTAssertEqual(retrievedTimestamp, expectedTimestamp,
                          file: file, line: line)
