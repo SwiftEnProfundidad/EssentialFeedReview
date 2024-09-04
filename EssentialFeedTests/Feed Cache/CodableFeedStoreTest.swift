@@ -62,7 +62,7 @@ final class CodableFeedStoreTest: XCTestCase, FailableFeedStoreSpecs {
   func test_retrieve_deliversEmptyOnEmptyCache() {
     let sut = makeSUT()
     
-    expect(sut, toRetrieve: .empty)
+    assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
   }
   
   func test_retrieve_hasNoSideEffectsOnEmptyCache() {
@@ -287,6 +287,10 @@ final class CodableFeedStoreTest: XCTestCase, FailableFeedStoreSpecs {
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
+  func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
+    expect(sut, toRetrieve: .empty, file: file, line: line)
+  }
+
   func expect(_ sut: FeedStore, toRetrieve expectedResult: RetrieveCachedNewsResult, file: StaticString = #file, line: UInt = #line) {
     let exp = expectation(description: "Wait for cache retrieval")
     
