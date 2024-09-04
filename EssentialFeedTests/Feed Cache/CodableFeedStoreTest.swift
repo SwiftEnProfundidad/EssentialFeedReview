@@ -43,7 +43,9 @@ protocol FailableDeleteFeedStoreSpecs: FeedStoreSpecs {
   func test_delete_hasNoSideEffectsOnDeletionError()
 }
 
-final class CodableFeedStoreTest: XCTestCase {
+typealias FailableFeedStoreSpecs = FailableRetrieveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
+
+final class CodableFeedStoreTest: XCTestCase, FailableFeedStoreSpecs {
   
   override func setUp() {
     super.setUp()
