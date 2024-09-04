@@ -1,5 +1,5 @@
 //
-//  XCTesXCTestCase+FailableRetrieveFeedStoreSpecs.swift .swift
+//  XCTestCase+FailableRetrieveFeedStoreSpecs.swift .swift
 //  EssentialFeedTests
 //
 //  Created by Juan Carlos merlos albarracin on 5/9/24.
