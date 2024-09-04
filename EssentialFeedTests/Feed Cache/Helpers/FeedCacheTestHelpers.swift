@@ -8,7 +8,7 @@
 import Foundation
 import EssentialFeed
 
-func uniqueImageFeeds() -> (models: [FeedImage], local: [LocalFeedImage]) {
+func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
   let models = [uniqueFeed(), uniqueFeed()]
   let local = models.map { LocalFeedImage(
     id: $0.id,

@@ -36,7 +36,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     
   }
 
-  func test_insert_overrridesPreviouslyInsertedCacheValues() {
+  func test_insert_overridesPreviouslyInsertedCacheValues() {
     
   }
 

@@ -44,7 +44,7 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   }
   
   func test_validate_doesNotDeleteNonExpiredCache() {
-    let feeds = uniqueImageFeeds()
+    let feeds = uniqueImageFeed()
     let fixedCurrentDate = Date()
     let nonExpiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: 1)
     let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -56,7 +56,7 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   }
   
   func test_load_hasNoSideEffectsOnSevenDaysOldCache() {
-    let feeds = uniqueImageFeeds()
+    let feeds = uniqueImageFeed()
     let fixedCurrentDate = Date()
     let sevenDaysOldTimestamp = fixedCurrentDate.minusFeedCacheMaxAge()
     let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -68,7 +68,7 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   }
   
   func test_validateCache_deletesCacheOnExpiration() {
-    let feeds = uniqueImageFeeds()
+    let feeds = uniqueImageFeed()
     let fixedCurrentDate = Date()
     let expiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge()
     let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -80,7 +80,7 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   }
   
   func test_validateCache_deletesExpiredCache() {
-    let feeds = uniqueImageFeeds()
+    let feeds = uniqueImageFeed()
     let fixedCurrentDate = Date()
     let expiredTimestamp = fixedCurrentDate.minusFeedCacheMaxAge().adding(seconds: -1)
     let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
@@ -111,8 +111,8 @@ final class ValidateFeedCacheUseCaseTest: XCTestCase {
   -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
     let store = FeedStoreSpy()
     let sut = LocalFeedLoader(store: store, currentDate: currentDate)
-    trackForMemoryLeak(sut, file: file, line: line)
-    trackForMemoryLeak(store, file: file, line: line)
+    trackForMemoryLeaks(sut, file: file, line: line)
+    trackForMemoryLeaks(store, file: file, line: line)
     return (sut, store)
   }
   
