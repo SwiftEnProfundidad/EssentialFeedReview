@@ -238,10 +238,18 @@
 				B4A0AB7C2C62EBD300D8A0E4 /* FeedStore.swift */,
 				B413A1142C65238C00579E30 /* FeedCachePolicy.swift */,
 				B4E972F72C7E9DE6008D27C5 /* CodableFeedStore.swift */,
-				B4D2ED8A2C8926EE0007504A /* CoreDataFeedStore.swift */,
+				B4B62C542C89841100C6B870 /* Infrastructure */,
 				B4D2ED8C2C8929DB0007504A /* FeedStore.xcdatamodeld */,
 			);
 			path = "Feed Cache";
+			sourceTree = "<group>";
+		};
+		B4B62C542C89841100C6B870 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				B4D2ED8A2C8926EE0007504A /* CoreDataFeedStore.swift */,
+			);
+			path = Infrastructure;
 			sourceTree = "<group>";
 		};
 		B4C1CFE02C4C467200439C0B /* Helpers */ = {
