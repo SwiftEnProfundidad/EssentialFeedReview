@@ -21,6 +21,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>EssentialFeedCacheIntegrationTest.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>SwiftNewsAPIEndToEndTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -40,6 +45,11 @@
 			<true/>
 		</dict>
 		<key>B45FE7DE2C5116A60020BCC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4B62C5F2C8990FE00C6B870</key>
 		<dict>
 			<key>primary</key>
 			<true/>
