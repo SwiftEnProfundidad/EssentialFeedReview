@@ -15,15 +15,15 @@
     {
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "B436AC072C33CEF7007A22A7",
-        "name" : "EssentialFeedTests"
+        "identifier" : "B45FE7DE2C5116A60020BCC1",
+        "name" : "EssentialFeedAPIEndToEndTests"
       }
     },
     {
       "target" : {
         "containerPath" : "container:EssentialFeed.xcodeproj",
-        "identifier" : "B45FE7DE2C5116A60020BCC1",
-        "name" : "EssentialFeedAPIEndToEndTests"
+        "identifier" : "B4B62C5F2C8990FE00C6B870",
+        "name" : "EssentialFeedCacheIntegrationTest"
       }
     }
   ],
