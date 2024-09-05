@@ -339,4 +339,5 @@ GET /image/{image-id}/comments
 
 ## App Architecture
 
-![](architecture.png)
+![image](https://github.com/user-attachments/assets/3df13230-275a-4ddf-8fe0-c3e4853ed112)
+
