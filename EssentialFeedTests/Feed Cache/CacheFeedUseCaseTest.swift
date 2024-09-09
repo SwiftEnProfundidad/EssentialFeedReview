@@ -49,7 +49,7 @@ final class CacheFeedUseCaseTest: XCTestCase {
     let (sut, store) = makeSUT()
     let deletionError = anyNSError()
     
-    expect(sut, toCompletWithError: deletionError) {
+    expect(sut, toCompleteWithError: deletionError) {
       store.completeDeletion(with: deletionError)
     }
   }
@@ -58,7 +58,7 @@ final class CacheFeedUseCaseTest: XCTestCase {
     let (sut, store) = makeSUT()
     let insertionError = anyNSError()
     
-    expect(sut, toCompletWithError: insertionError, when: {
+    expect(sut, toCompleteWithError: insertionError, when: {
       store.completeDeletionSuccessfully()
       store.completeInsertion(with: insertionError)
     })
@@ -67,7 +67,7 @@ final class CacheFeedUseCaseTest: XCTestCase {
   func test_save_succeedssOnSuccessfulCacheInsertion() {
     let (sut, store) = makeSUT()
     
-    expect(sut, toCompletWithError: nil, when: {
+    expect(sut, toCompleteWithError: nil, when: {
       store.completeDeletionSuccessfully()
       store.completeInsertionSuccessfully()
     })
@@ -77,7 +77,7 @@ final class CacheFeedUseCaseTest: XCTestCase {
     let store = FeedStoreSpy()
     var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
     
-    var receivedResults = [Error?]()
+    var receivedResults = [Result<Void, Error>]()
     sut?.save(uniqueImageFeeds().models, completion: { receivedResults.append($0) })
     
     sut = nil
@@ -90,7 +90,7 @@ final class CacheFeedUseCaseTest: XCTestCase {
     let store = FeedStoreSpy()
     var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
     
-    var receivedResults = [Error?]()
+    var receivedResults = [Result<Void, Error>]()
     sut?.save(uniqueImageFeeds().models, completion: { receivedResults.append($0) })
     
     store.completeDeletionSuccessfully()
@@ -113,17 +113,12 @@ final class CacheFeedUseCaseTest: XCTestCase {
       return (sut, store)
     }
   
-  private func expect(_ sut: LocalFeedLoader,
-                      toCompletWithError expectedError: NSError?,
-                      when action: () -> Void,
-                      file: StaticString = #file,
-                      line: UInt = #line) {
-    
+  private func expect(_ sut: LocalFeedLoader, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
     let exp = expectation(description: "Wait for save completion")
     
     var receivedError: Error?
-    sut.save(uniqueImageFeeds().models) { error in
-      receivedError = error
+    sut.save(uniqueImageFeed().models) { result in
+      if case let Result.failure(error) = result { receivedError = error }
       exp.fulfill()
     }
     
