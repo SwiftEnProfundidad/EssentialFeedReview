@@ -26,6 +26,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>EssentialFeediOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>SwiftNewsAPIEndToEndTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -45,6 +50,16 @@
 			<true/>
 		</dict>
 		<key>B45FE7DE2C5116A60020BCC1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4A4D81F2C90494800E2646D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4A4D8262C90494900E2646D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
