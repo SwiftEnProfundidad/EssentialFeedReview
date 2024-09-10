@@ -15,6 +15,7 @@
 		B436211B2C900A5E00CE3454 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436211A2C900A5E00CE3454 /* FeedViewController.swift */; };
 		B436211D2C900D3500CE3454 /* FeedImageViewModel+PrototypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436211C2C900D3500CE3454 /* FeedImageViewModel+PrototypeData.swift */; };
 		B436211F2C900D5B00CE3454 /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B436211E2C900D5B00CE3454 /* FeedImageViewModel.swift */; };
+		B43621212C900F4400CE3454 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43621202C900F4400CE3454 /* FeedImageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B436211A2C900A5E00CE3454 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B436211C2C900D3500CE3454 /* FeedImageViewModel+PrototypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageViewModel+PrototypeData.swift"; sourceTree = "<group>"; };
 		B436211E2C900D5B00CE3454 /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
+		B43621202C900F4400CE3454 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B436210F2C8FF30C00CE3454 /* Assets.xcassets */,
 				B43621112C8FF30C00CE3454 /* LaunchScreen.storyboard */,
 				B43621142C8FF30C00CE3454 /* Info.plist */,
+				B43621202C900F4400CE3454 /* FeedImageCell.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B436211F2C900D5B00CE3454 /* FeedImageViewModel.swift in Sources */,
+				B43621212C900F4400CE3454 /* FeedImageCell.swift in Sources */,
 				B43621072C8FF30A00CE3454 /* AppDelegate.swift in Sources */,
 				B436211B2C900A5E00CE3454 /* FeedViewController.swift in Sources */,
 				B43621092C8FF30A00CE3454 /* SceneDelegate.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 extension FeedImageViewModel {
-  static var prototypeNews: [FeedImageViewModel] {
+  static var prototypeFeed: [FeedImageViewModel] {
     return [
       FeedImageViewModel(
         description: "The East Side Gallery is an open-air gallery in Berlin. It consists of a series of murals painted directly on a 1,316 m long remnant of the Berlin Wall, located near the centre of Berlin, on Mühlenstraße in Friedrichshain-Kreuzberg. The gallery has official status as a Denkmal, or heritage-protected landmark.",
