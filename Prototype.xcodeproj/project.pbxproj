@@ -63,12 +63,12 @@
 				B43621062C8FF30A00CE3454 /* AppDelegate.swift */,
 				B43621082C8FF30A00CE3454 /* SceneDelegate.swift */,
 				B436211A2C900A5E00CE3454 /* FeedViewController.swift */,
+				B436211C2C900D3500CE3454 /* FeedImageViewModel+PrototypeData.swift */,
+				B436211E2C900D5B00CE3454 /* FeedImageViewModel.swift */,
 				B436210C2C8FF30A00CE3454 /* Main.storyboard */,
 				B436210F2C8FF30C00CE3454 /* Assets.xcassets */,
 				B43621112C8FF30C00CE3454 /* LaunchScreen.storyboard */,
 				B43621142C8FF30C00CE3454 /* Info.plist */,
-				B436211C2C900D3500CE3454 /* FeedImageViewModel+PrototypeData.swift */,
-				B436211E2C900D5B00CE3454 /* FeedImageViewModel.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
