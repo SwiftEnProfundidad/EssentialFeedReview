@@ -10,6 +10,7 @@ import UIKit
 import EssentialFeed
 
 final class FeedViewController: UITableViewController {
+  private var viewAppeared = false
   private var loader: FeedLoader?
   
   convenience init(loader: FeedLoader) {
@@ -17,17 +18,27 @@ final class FeedViewController: UITableViewController {
     self.loader = loader
   }
   
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      refreshControl = UIRefreshControl()
-      refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-          
-      load()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+  }
   
-  @objc private func load() {
-    loader?.load { _ in }
+  override func viewIsAppearing(_ animated: Bool) {
+    super.viewIsAppearing(animated)
+    
+    if !viewAppeared {
+      refresh()
+      viewAppeared = true
+    }
+  }
+  
+  @objc private func refresh() {
+    refreshControl?.beginRefreshing()
+    loader?.load { [weak self] _ in
+      self?.refreshControl?.endRefreshing()
+    }
   }
 }
 
@@ -44,7 +55,7 @@ final class FeedViewControllerTest: XCTestCase {
     
     sut.refreshControl?.simulatePullToRefresh()
     
-    XCTAssertEqual(loader.loadCallCount, 2)
+    XCTAssertEqual(loader.loadCallCount, 1)
   }
   
   func test_pullToRefresh_loadsNews() {
@@ -53,12 +64,26 @@ final class FeedViewControllerTest: XCTestCase {
     sut.loadViewIfNeeded()
     
     sut.refreshControl?.simulatePullToRefresh()
-    XCTAssertEqual(loader.loadCallCount, 2)
+    XCTAssertEqual(loader.loadCallCount, 1)
     
     sut.refreshControl?.simulatePullToRefresh()
-    XCTAssertEqual(loader.loadCallCount, 3)
+    XCTAssertEqual(loader.loadCallCount, 2)
   }
-
+  
+  func test_viewDidLoad_showsLoadingIndicator() {
+    let (sut, _) = makeSUT()
+    
+    sut.simulateAppearance()
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    
+    sut.refreshControl?.sendActions(for: .valueChanged)
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    
+    // Evitamos que se ejecute más de una vez
+    sut.refreshControl?.endRefreshing()
+    sut.simulateAppearance()
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+  }
   
   // MARK: - Helpers
   
@@ -72,11 +97,57 @@ final class FeedViewControllerTest: XCTestCase {
     }
   
   class LoaderSpy: FeedLoader {
-    private(set) var loadCallCount = 0
+    private var completions = [(FeedLoader.Result) -> Void]()
+    
+    var loadCallCount: Int {
+      return completions.count
+    }
     
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-      loadCallCount += 1
+      completions.append(completion)
     }
+    
+    func completeFeedLoading() {
+      completions[0](.success([]))
+    }
+  }
+  
+}
+
+private class FakeRefreshControl: UIRefreshControl {
+  private var _isRefreshing: Bool = false
+  
+  override var isRefreshing: Bool { _isRefreshing }
+  
+  override func beginRefreshing() {
+    _isRefreshing = true
+  }
+  
+  override func endRefreshing() {
+    _isRefreshing = false
+  }
+}
+
+private extension FeedViewController {
+  func simulateAppearance() {
+    if !isViewLoaded {
+      loadViewIfNeeded()
+      replacerefreshControlWithFakeForiOS17Support()
+    }
+    
+    beginAppearanceTransition(true, animated: false) // internamente es como hacer: viewWillAppear
+    endAppearanceTransition() // internamente es como hacer: viewIsAppearing+viewDidAppear
+  }
+  
+  func replacerefreshControlWithFakeForiOS17Support() {
+    let fake = FakeRefreshControl()
+    
+    refreshControl?.allTargets.forEach { target in
+      refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+        fake.addTarget(target, action: Selector(action), for: .valueChanged)
+      }
+    }
+    refreshControl = fake
   }
 }
 
