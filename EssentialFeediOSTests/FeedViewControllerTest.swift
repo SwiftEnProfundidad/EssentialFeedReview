@@ -149,6 +149,7 @@ private extension FeedViewController {
     }
     refreshControl = fake
   }
+  
 }
 
 private extension UIRefreshControl {
