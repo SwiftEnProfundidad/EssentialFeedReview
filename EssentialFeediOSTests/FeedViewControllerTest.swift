@@ -58,7 +58,7 @@ final class FeedViewControllerTest: XCTestCase {
     XCTAssertEqual(loader.loadCallCount, 1)
   }
   
-  func test_pullToRefresh_loadsNews() {
+  func test_pullToRefresh_loadsFeed() {
     let (sut, loader) = makeSUT()
     
     sut.loadViewIfNeeded()
@@ -82,6 +82,32 @@ final class FeedViewControllerTest: XCTestCase {
     // Evitamos que se ejecute más de una vez
     sut.refreshControl?.endRefreshing()
     sut.simulateAppearance()
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+  }
+  
+  func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+    let (sut, loader) = makeSUT()
+    
+    sut.loadViewIfNeeded()
+    loader.completeFeedLoading()
+    
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+  }
+  
+  func test_pullToRefresh_showsLoadingIndicator() {
+    let (sut, _) = makeSUT()
+    
+    sut.simulateAppearance()
+    
+    XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+  }
+  
+  func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    let (sut, loader) = makeSUT()
+    
+    sut.refreshControl?.simulatePullToRefresh()
+    loader.completeFeedLoading()
+    
     XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
   }
   
@@ -149,16 +175,14 @@ private extension FeedViewController {
     }
     refreshControl = fake
   }
-  
 }
 
 private extension UIRefreshControl {
   func simulatePullToRefresh() {
     allTargets.forEach { target in
-      actions(forTarget: target, forControlEvent: .valueChanged)?
-        .forEach { action in
-          (target as NSObject).perform(Selector(action))
-        }
+      actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+        (target as NSObject).perform(Selector($0))
+      }
     }
   }
 }
