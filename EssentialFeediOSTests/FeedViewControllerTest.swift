@@ -18,34 +18,38 @@ final class FeedViewControllerTest: XCTestCase {
     XCTAssertEqual(loader.loadCallCount, 0, "Expected no loading requests before view is loaded")
     
     sut.loadViewIfNeeded()
-    sut.refreshControl?.simulatePullToRefresh()
+    sut.refreshControl?.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
     
-    sut.refreshControl?.simulatePullToRefresh()
+    sut.refreshControl?.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
     
-    sut.refreshControl?.simulatePullToRefresh()
+    sut.refreshControl?.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
   }
   
-  func test_viewDidLoad_showsLoadingIndicator() {
+  func test_loadingFeedIndicator_isVisibleWhileLoadingFeed() {
     let (sut, loader) = makeSUT()
     
-    sut.loadViewIfNeeded()
-    
-    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
-    
-    sut.refreshControl?.simulatePullToRefresh()
-    XCTAssertFalse(sut.isShowingLoadingIndicator) // Change to true
+    sut.simulateAppearance()
+    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
     
     loader.completeFeedLoading(at: 0)
     XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
-    
-    sut.refreshControl?.simulatePullToRefresh()
-    XCTAssertFalse(sut.isShowingLoadingIndicator) // Change to true
+
+    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
     
     loader.completeFeedLoading(at: 1)
     XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
+  }
+  
+  func test_loadFeedCompletion_rendersSuccesfullyLoadedFeed() {
+    let (sut, _) = makeSUT()
+    
+    sut.loadViewIfNeeded()
+    
+    XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 0)
   }
   
   // MARK: - Helpers
@@ -117,10 +121,18 @@ private extension FeedViewController {
     return refreshControl?.isRefreshing == true
   }
   
+  func numberOfRenderedFeedImageViews() -> Int {
+    return tableView.numberOfRows(inSection: feedImageSection)
+  }
+  
+  private var feedImageSection: Int {
+    return 0
+  }
+  
 }
 
 private extension UIRefreshControl {
-  func simulatePullToRefresh() {
+  func simulateUserInitiatedFeedReload() {
     allTargets.forEach { target in
       actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
         (target as NSObject).perform(Selector($0))
