@@ -17,14 +17,13 @@ final class FeedViewControllerTest: XCTestCase {
     
     XCTAssertEqual(loader.loadCallCount, 0, "Expected no loading requests before view is loaded")
     
-    sut.loadViewIfNeeded()
-    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    sut.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
     
-    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    sut.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once user initiates a reload")
     
-    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    sut.simulateUserInitiatedFeedReload()
     XCTAssertEqual(loader.loadCallCount, 3, "Expected yet another loading request once user initiates another reload")
   }
   
@@ -37,7 +36,7 @@ final class FeedViewControllerTest: XCTestCase {
     loader.completeFeedLoading(at: 0)
     XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
     
-    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    sut.simulateUserInitiatedFeedReload()
     XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
     
     loader.completeFeedLoading(at: 1)
@@ -51,13 +50,13 @@ final class FeedViewControllerTest: XCTestCase {
     let image3 = makeImage(description: nil, location: nil)
     let (sut, loader) = makeSUT()
     
-    XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 0)
     sut.simulateAppearance()
+    assertThat(sut, isRendering: [])
     
     loader.completeFeedLoading(with: [image0], at: 0)
     assertThat(sut, isRendering: [image0])
     
-    sut.refreshControl?.simulateUserInitiatedFeedReload()
+    sut.simulateUserInitiatedFeedReload()
     loader.completeFeedLoading(with: [image0, image1, image2, image3], at: 1)
     assertThat(sut, isRendering: [image0, image1, image2, image3])
   }
@@ -142,6 +141,11 @@ final class FeedViewControllerTest: XCTestCase {
     func completeFeedLoading(with feed: [FeedImage] = [], at index: Int) {
       completions[index](.success(feed))
     }
+    
+    func completeFeedLoadingWithError(at index: Int = 0) {
+      let error = NSError(domain: "an error", code: 0)
+      completions[index](.failure(error))
+    }
   }
   
 }
@@ -161,6 +165,10 @@ private class FakeRefreshControl: UIRefreshControl {
 }
 
 private extension FeedViewController {
+  func simulateUserInitiatedFeedReload() {
+    refreshControl?.simulatePullToRefresh()
+  }
+  
   func simulateAppearance() {
     if !isViewLoaded {
       loadViewIfNeeded()
@@ -203,7 +211,7 @@ private extension FeedViewController {
 }
 
 private extension UIRefreshControl {
-  func simulateUserInitiatedFeedReload() {
+  func simulatePullToRefresh() {
     allTargets.forEach { target in
       actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
         (target as NSObject).perform(Selector($0))
