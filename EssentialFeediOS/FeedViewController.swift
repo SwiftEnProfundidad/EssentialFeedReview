@@ -37,8 +37,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     tableView.prefetchDataSource = self
-    
-    FeedViewController.load()
   }
   
   public override func viewIsAppearing(_ animated: Bool) {
