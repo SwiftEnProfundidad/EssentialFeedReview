@@ -251,29 +251,6 @@ final class FeedViewControllerTest: XCTestCase {
   private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "https://a-url.com")!) -> FeedImage {
     return FeedImage(id: UUID(), description: description, location: location, url: url)
   }
-  
-  private class FakeRefreshControl: UIRefreshControl {
-    private var _isRefreshing: Bool = false
-    
-    override var isRefreshing: Bool { _isRefreshing }
-    
-    override func beginRefreshing() {
-      _isRefreshing = true
-    }
-    
-    override func endRefreshing() {
-      _isRefreshing = false
-    }
-  }
-  
-  private extension UIRefreshControl {
-    func simulatePullToRefresh() {
-      allTargets.forEach { target in
-        actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
-          (target as NSObject).perform(Selector($0))
-        }
-      }
-    }
-  }
-  
+
+}
  
