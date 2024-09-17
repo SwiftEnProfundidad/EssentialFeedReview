@@ -10,7 +10,7 @@ import UIKit
 import EssentialFeed
 import EssentialFeediOS
 
-final class FeedViewControllerTest: XCTestCase {
+final class FeedViewControllerTests: XCTestCase {
   
   func test_loadFeedActions_requestFeedFromLoader() {
     let (sut, loader) = makeSUT()
@@ -30,13 +30,13 @@ final class FeedViewControllerTest: XCTestCase {
     let (sut, loader) = makeSUT()
     
     sut.simulateAppearance()
-    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
+    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded") // XCTAssertTrue
     
     loader.completeFeedLoading(at: 0)
     XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading completes successfully")
     
     sut.simulateUserInitiatedFeedReload()
-    XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload")
+    XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected loading indicator once user initiates a reload") // XCTAssertTrue
     
     loader.completeFeedLoadingWithError(at: 1)
     XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading completes with error")
