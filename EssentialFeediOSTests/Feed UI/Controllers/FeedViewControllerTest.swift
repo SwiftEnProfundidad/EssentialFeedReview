@@ -252,100 +252,36 @@ final class FeedViewControllerTest: XCTestCase {
     return FeedImage(id: UUID(), description: description, location: location, url: url)
   }
   
-  class LoaderSpy: FeedLoader, FeedImageDataLoader {
+  private class FakeRefreshControl: UIRefreshControl {
+    private var _isRefreshing: Bool = false
     
-    // MARK: - FeedLoader
+    override var isRefreshing: Bool { _isRefreshing }
     
-    private var feedRequest = [(FeedLoader.Result) -> Void]()
-    
-    var loadFeedCallCount: Int {
-      return feedRequest.count
+    override func beginRefreshing() {
+      _isRefreshing = true
     }
     
-    func load(completion: @escaping (FeedLoader.Result) -> Void) {
-      feedRequest.append(completion)
-    }
-    
-    func completeFeedLoading(with feed: [FeedImage] = [], at index: Int = 0) {
-      feedRequest[index](.success(feed))
-    }
-    
-    func completeFeedLoadingWithError(at index: Int = 0) {
-      let error = NSError(domain: "an error", code: 0)
-      feedRequest[index](.failure(error))
-    }
-    
-    // MARK: - FeedImageDataLoader
-    
-    private struct TaskSpy: FeedImageDataLoaderTask {
-      let cancelCallBack: () -> Void
-      
-      func cancel() {
-        cancelCallBack()
-      }
-    }
-    
-    private var imageRequest = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
-    
-    var loadedImageURLs: [URL] {
-      return imageRequest.map { $0.url }
-    }
-    
-    private(set) var cancelledImageURLs = [URL]()
-    
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-      imageRequest.append((url, completion))
-      return TaskSpy { [weak self] in
-        self?.cancelledImageURLs.append(url)
-      }
-    }
-    
-    func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
-      imageRequest[index].completion(.success(imageData))
-    }
-    
-    func completeImageLoadingWithError(at index: Int = 0) {
-      let error = NSError(domain: "an error", code: 0)
-      imageRequest[index].completion(.failure(error))
-    }
-    
-    func cancelImageDataLoading(from url: URL) {
-      cancelledImageURLs.append(url)
+    override func endRefreshing() {
+      _isRefreshing = false
     }
   }
   
-}
-
-private class FakeRefreshControl: UIRefreshControl {
-  private var _isRefreshing: Bool = false
-  
-  override var isRefreshing: Bool { _isRefreshing }
-  
-  override func beginRefreshing() {
-    _isRefreshing = true
-  }
-  
-  override func endRefreshing() {
-    _isRefreshing = false
-  }
-}
-
-private extension UIRefreshControl {
-  func simulatePullToRefresh() {
-    allTargets.forEach { target in
-      actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
-        (target as NSObject).perform(Selector($0))
+  private extension UIRefreshControl {
+    func simulatePullToRefresh() {
+      allTargets.forEach { target in
+        actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+          (target as NSObject).perform(Selector($0))
+        }
       }
     }
   }
-}
-
-private extension UIButton {
-  func simulateTap() {
-    allTargets.forEach { target in
-      actions(forTarget: target, forControlEvent: .touchUpInside)?.forEach {
-        (target as NSObject).perform(Selector($0))
+  
+  private extension UIButton {
+    func simulateTap() {
+      allTargets.forEach { target in
+        actions(forTarget: target, forControlEvent: .touchUpInside)?.forEach {
+          (target as NSObject).perform(Selector($0))
+        }
       }
     }
   }
-}
