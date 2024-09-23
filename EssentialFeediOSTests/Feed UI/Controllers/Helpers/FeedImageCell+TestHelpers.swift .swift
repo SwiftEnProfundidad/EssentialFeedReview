@@ -14,7 +14,7 @@ extension FeedImageCell {
   }
   
   var isShowingImageLoadingIndicator: Bool {
-    return feedImageViewContainer.isShimmering
+    return feedImageContainer.isShimmering
   }
   
   var locationText: String? {
