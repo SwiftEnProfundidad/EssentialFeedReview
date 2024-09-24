@@ -126,6 +126,7 @@ Location</string>
                         <connections>
                             <outlet property="dataSource" destination="Dry-iq-3oH" id="uqe-6m-tjM"/>
                             <outlet property="delegate" destination="Dry-iq-3oH" id="p10-vc-xHh"/>
+                            <outlet property="prefetchDataSource" destination="Dry-iq-3oH" id="2Hs-55-XQs"/>
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="6vK-oG-pgK">
