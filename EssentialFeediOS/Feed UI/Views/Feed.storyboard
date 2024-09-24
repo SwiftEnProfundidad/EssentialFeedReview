@@ -77,6 +77,9 @@ Location</string>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" image="custom.arrow.clockwise"/>
+                                                            <connections>
+                                                                <action selector="retryButtonTapped" destination="jiL-Gc-KUC" eventType="touchUpInside" id="7S7-a6-TU6"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,11 +118,12 @@ Location</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="gV9-ly-eZW" id="TPK-Ci-aX9"/>
-                                    <outlet property="feedImageContainer" destination="8eM-3A-QLo" id="Nvj-tc-zEl"/>
-                                    <outlet property="feedImageView" destination="3tq-3L-olP" id="mIB-84-6V8"/>
-                                    <outlet property="locationContainer" destination="Y2U-A6-3Z9" id="fPz-OA-w68"/>
-                                    <outlet property="locationLabel" destination="f8r-Tw-F8F" id="GOD-jf-f8M"/>
+                                    <outlet property="descriptionLabel" destination="gV9-ly-eZW" id="fhc-zU-Kr1"/>
+                                    <outlet property="feedImageContainer" destination="8eM-3A-QLo" id="dyv-wS-rqw"/>
+                                    <outlet property="feedImageRetryButton" destination="aAK-pd-Yoq" id="o14-l3-44d"/>
+                                    <outlet property="feedImageView" destination="3tq-3L-olP" id="uqr-uB-WcI"/>
+                                    <outlet property="locationContainer" destination="Y2U-A6-3Z9" id="zHb-L7-qWp"/>
+                                    <outlet property="locationLabel" destination="f8r-Tw-F8F" id="kvX-tZ-psN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
