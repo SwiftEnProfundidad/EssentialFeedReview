@@ -280,6 +280,13 @@ final class FeedViewControllerTests: XCTestCase {
     XCTAssertEqual(view0.renderedImage, .none, "Expected no image state change for reused view once image loading completes successfully")
   }
   
+  func test_feedView_hasTitle() {
+    let (sut, _) = makeSUT()
+    
+    sut.simulateAppearance()
+    XCTAssertEqual(sut.title, "My Feed")
+  }
+  
   // MARK: - Helpers
   
   private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (
