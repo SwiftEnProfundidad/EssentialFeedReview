@@ -247,7 +247,22 @@ final class FeedViewControllerTests: XCTestCase {
     loader.completeImageLoading(with: anyImageData())
     
     XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
+  }
+  
+  func test_feedImageView_showsDataForNewViewRequestAfterPreviousViewIsReused() throws {
+    let (sut, loader) = makeSUT()
     
+    sut.simulateAppearance()
+    loader.completeFeedLoading(with: [makeImage(), makeImage()])
+    
+    let previousView = try XCTUnwrap(sut.simulateFeedImageViewNotVisible(at: 0))
+    let newView = try XCTUnwrap(sut.simulateFeedImageViewVisible(at: 0))
+    previousView.prepareForReuse()
+    
+    let imageData = UIImage.make(withColor: .red).pngData()!
+    loader.completeImageLoading(with: imageData, at: 1)
+    
+    XCTAssertEqual(newView.renderedImage, imageData)
   }
   
   // MARK: - Helpers
