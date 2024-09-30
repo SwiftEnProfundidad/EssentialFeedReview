@@ -17,15 +17,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
   var delegate: FeedViewControllerDelegate?
   
   internal var tableModel = [FeedImageCellController]() {
-    didSet {
-      if Thread.isMainThread {
-        tableView.reloadData()
-      } else {
-        DispatchQueue.main.async { [weak self] in
-          self?.tableView.reloadData()
-        }
-      }
-    }
+    didSet { tableView.reloadData() }
   }
   
   public override func viewDidLoad() {
@@ -46,11 +38,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
   }
   
   func display(_ viewModel: FeedLoadingViewModel) {
-    guard Thread.isMainThread else {
-      return DispatchQueue.main.sync { [weak self] in
-        self?.display(viewModel)
-      }
-    }
     if viewModel.isLoading {
       refreshControl?.beginRefreshing()
     } else {
@@ -80,12 +67,12 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     indexPaths.forEach(cancelCellControllerLoad)
   }
   
-  private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-    cellController(forRowAt: indexPath).cancelLoad()
-  }
-  
   private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
     return tableModel[indexPath.row]
+  }
+  
+  private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
+    cellController(forRowAt: indexPath).cancelLoad()
   }
   
 }
