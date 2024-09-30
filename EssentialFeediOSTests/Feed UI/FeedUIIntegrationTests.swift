@@ -5,13 +5,12 @@
 //  Created by Juan Carlos merlos albarracin on 10/9/24.
 //
 
-import XCTest
-import UIKit
 import EssentialFeed
 import EssentialFeediOS
+import UIKit
+import XCTest
 
 final class FeedUIIntegrationTests: XCTestCase {
-  
   func test_loadFeedActions_requestFeedFromLoader() {
     let (sut, loader) = makeSUT()
     XCTAssertEqual(loader.loadFeedCallCount, 0, "Expected no loading requests before view is loaded")
@@ -318,13 +317,14 @@ final class FeedUIIntegrationTests: XCTestCase {
   // MARK: - Helpers
   
   private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (
-    sut: FeedViewController, loader: LoaderSpy) {
-      let loader = LoaderSpy()
-      let sut = FeedUIComposer.feedComposeWith(feedLoader: loader, imageLoader: loader)
-      trackForMemoryLeaks(sut, file: file, line: line)
-      trackForMemoryLeaks(loader, file: file, line: line)
-      return (sut, loader)
-    }
+    sut: FeedViewController, loader: LoaderSpy)
+  {
+    let loader = LoaderSpy()
+    let sut = FeedUIComposer.feedComposeWith(feedLoader: loader, imageLoader: loader)
+    trackForMemoryLeaks(sut, file: file, line: line)
+    trackForMemoryLeaks(loader, file: file, line: line)
+    return (sut, loader)
+  }
   
   private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "https://a-url.com")!) -> FeedImage {
     return FeedImage(id: UUID(), description: description, location: location, url: url)
@@ -334,5 +334,3 @@ final class FeedUIIntegrationTests: XCTestCase {
     return UIImage.make(withColor: .red).pngData()!
   }
 }
-
-
