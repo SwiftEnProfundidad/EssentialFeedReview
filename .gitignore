@@ -1,1 +1,13 @@
 swiftformat-output.txt
+# Archivos generados por el sistema operativo
+.DS_Store
+
+# Archivos de Xcode
+*.xcuserdata
+*.xcuserstate
+*.xcworkspace
+
+# Directorios generados durante la construcción
+build/
+DerivedData/
+
