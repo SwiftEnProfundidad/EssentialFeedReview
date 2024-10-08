@@ -8,7 +8,7 @@
 import Foundation
 
 struct FeedImageViewModel {
-  let description: String?
-  let location: String?
-  let imageName: String
+    let description: String?
+    let location: String?
+    let imageName: String
 }

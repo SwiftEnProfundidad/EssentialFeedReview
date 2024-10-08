@@ -602,6 +602,7 @@
 			buildPhases = (
 				B436ABFB2C33CEF7007A22A7 /* Headers */,
 				B436ABFC2C33CEF7007A22A7 /* Sources */,
+				B4F92F5E2CB43F62001E1D3C /* ShellScript */,
 				B436ABFD2C33CEF7007A22A7 /* Frameworks */,
 				B436ABFE2C33CEF7007A22A7 /* Resources */,
 			);
@@ -619,6 +620,7 @@
 			buildConfigurationList = B436AC152C33CEF7007A22A7 /* Build configuration list for PBXNativeTarget "EssentialFeedTests" */;
 			buildPhases = (
 				B436AC042C33CEF7007A22A7 /* Sources */,
+				B4F92F612CB440D7001E1D3C /* ShellScript */,
 				B436AC052C33CEF7007A22A7 /* Frameworks */,
 				B436AC062C33CEF7007A22A7 /* Resources */,
 			);
@@ -637,6 +639,7 @@
 			buildConfigurationList = B45FE7E62C5116A60020BCC1 /* Build configuration list for PBXNativeTarget "EssentialFeedAPIEndToEndTests" */;
 			buildPhases = (
 				B45FE7DB2C5116A60020BCC1 /* Sources */,
+				B4F92F622CB440E6001E1D3C /* ShellScript */,
 				B45FE7DC2C5116A60020BCC1 /* Frameworks */,
 				B45FE7DD2C5116A60020BCC1 /* Resources */,
 			);
@@ -656,6 +659,7 @@
 			buildPhases = (
 				B4A4D81B2C90494800E2646D /* Headers */,
 				B4A4D81C2C90494800E2646D /* Sources */,
+				B4F92F5F2CB440BC001E1D3C /* ShellScript */,
 				B4A4D81D2C90494800E2646D /* Frameworks */,
 				B4A4D81E2C90494800E2646D /* Resources */,
 				B4770EBA2C90DD1C003302F4 /* Embed Frameworks */,
@@ -675,6 +679,7 @@
 			buildConfigurationList = B4A4D8322C90494900E2646D /* Build configuration list for PBXNativeTarget "EssentialFeediOSTests" */;
 			buildPhases = (
 				B4A4D8232C90494900E2646D /* Sources */,
+				B4F92F602CB440C7001E1D3C /* ShellScript */,
 				B4A4D8242C90494900E2646D /* Frameworks */,
 				B4A4D8252C90494900E2646D /* Resources */,
 			);
@@ -693,6 +698,7 @@
 			buildConfigurationList = B4B62C672C8990FE00C6B870 /* Build configuration list for PBXNativeTarget "EssentialFeedCacheIntegrationTest" */;
 			buildPhases = (
 				B4B62C5C2C8990FE00C6B870 /* Sources */,
+				B4F92F632CB440F2001E1D3C /* ShellScript */,
 				B4B62C5D2C8990FE00C6B870 /* Frameworks */,
 				B4B62C5E2C8990FE00C6B870 /* Resources */,
 			);
@@ -810,6 +816,118 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B4F92F5E2CB43F62001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"",
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+		B4F92F5F2CB440BC001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+		B4F92F602CB440C7001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+		B4F92F612CB440D7001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+		B4F92F622CB440E6001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+		B4F92F632CB440F2001E1D3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B436ABFC2C33CEF7007A22A7 /* Sources */ = {
@@ -1006,7 +1124,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1073,7 +1191,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
