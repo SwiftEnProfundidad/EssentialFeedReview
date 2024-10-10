@@ -364,7 +364,6 @@
 				B45FE7F82C5648F40020BCC1 /* EssentialFeed.xctestplan */,
 				B436AC022C33CEF7007A22A7 /* EssentialFeed */,
 				B436AC0C2C33CEF7007A22A7 /* EssentialFeedTests */,
-				B45FE7E02C5116A60020BCC1 /* EssentialFeedAPIEndToEndTests */,
 				B4B62C612C8990FE00C6B870 /* EssentialFeedCacheIntegrationTest */,
 				B4A4D8212C90494800E2646D /* EssentialFeediOS */,
 				B4A4D82B2C90494900E2646D /* EssentialFeediOSTests */,
@@ -393,6 +392,7 @@
 				B436AC1C2C33D573007A22A7 /* Feed Feature */,
 				B456DE602C33F7E100F1F506 /* Feed API */,
 				B436AC032C33CEF7007A22A7 /* EssentialFeed.h */,
+				B45FE7E02C5116A60020BCC1 /* EssentialFeedAPIEndToEndTests */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
@@ -755,6 +755,8 @@
 				"pt-BR",
 			);
 			mainGroup = B436ABF62C33CEF7007A22A7;
+			packageReferences = (
+			);
 			productRefGroup = B436AC012C33CEF7007A22A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
