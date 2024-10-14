@@ -1,5 +1,5 @@
 //
-//  UIImageView.swift
+//  UIImageView+Animations.swift
 //  EssentialFeediOS
 //
 //  Created by Juan Carlos merlos albarracin on 24/9/24.

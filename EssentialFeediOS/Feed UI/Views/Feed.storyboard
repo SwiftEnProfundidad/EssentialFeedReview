@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Djc-ve-sAZ" customClass="ErrorView" customModule="MVP" customModuleProvider="target">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Djc-ve-sAZ" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="43"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -26,6 +26,9 @@
                                     <state key="normal" title="Error label">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="hideMessage" destination="Djc-ve-sAZ" eventType="touchUpInside" id="Kfp-wj-EK9"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.99951404330000004" green="0.41759261489999999" blue="0.4154433012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,6 +39,9 @@
                                 <constraint firstAttribute="bottom" secondItem="NUs-Jy-izR" secondAttribute="bottom" id="kbp-Vv-BHu"/>
                                 <constraint firstAttribute="trailing" secondItem="NUs-Jy-izR" secondAttribute="trailing" id="mdC-Ht-qhc"/>
                             </constraints>
+                            <connections>
+                                <outlet property="button" destination="NUs-Jy-izR" id="Gsh-CK-ZQw"/>
+                            </connections>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="lVc-ts-4Pj">
                             <rect key="frame" x="0.0" y="701" width="393" height="16"/>

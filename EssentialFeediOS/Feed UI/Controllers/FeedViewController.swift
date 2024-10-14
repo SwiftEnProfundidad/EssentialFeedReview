@@ -40,15 +40,19 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
 
     public func display(_ viewModel: FeedLoadingViewModel) {
-        if viewModel.isLoading {
-            refreshControl?.beginRefreshing()
-        } else {
-            refreshControl?.endRefreshing()
-        }
+      refreshControl?.update(isRefreshing: viewModel.isLoading)
+    }
+
+    func display(_ cellControllers: [FeedImageCellController]) {
+        tableModel = cellControllers
     }
 
     public func display(_ viewModel: FeedErrorViewModel) {
-        errorView?.message = viewModel.errorMessage
+        if let message = viewModel.errorMessage {
+            errorView?.show(message: message)
+        } else {
+            errorView?.hideMessage()
+        }
     }
 
     override public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
