@@ -42,6 +42,10 @@ extension FeedViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
 
+    var errorMessage: String? {
+        errorView.message
+    }
+
     func simulateAppearance() {
         if !isViewLoaded {
             loadViewIfNeeded()
