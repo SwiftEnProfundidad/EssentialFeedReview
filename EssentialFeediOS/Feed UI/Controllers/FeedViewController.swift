@@ -40,7 +40,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
 
     public func display(_ viewModel: FeedLoadingViewModel) {
-      refreshControl?.update(isRefreshing: viewModel.isLoading)
+        refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
 
     func display(_ cellControllers: [FeedImageCellController]) {
