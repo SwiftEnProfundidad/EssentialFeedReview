@@ -9,7 +9,7 @@ import Foundation
 
 public final class FeedPresenter {
     private let feedView: FeedView
-    public var errorView: FeedErrorView?
+    private var errorView: FeedErrorView?
     private var loadingView: FeedLoadingView
 
     private var feedLoadError: String {
@@ -43,7 +43,7 @@ public final class FeedPresenter {
     }
 
     public func didFinishLoadingFeed(with _: Error) {
-        errorView?.display(.error(message: feedLoadError))
+        errorView?.display(FeedErrorViewModel(errorMessage: feedLoadError))
         loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
