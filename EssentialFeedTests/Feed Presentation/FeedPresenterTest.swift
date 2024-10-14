@@ -52,6 +52,13 @@ final class FeedPresenter {
                           comment: "Error message displayed when we can't load the image news from the server")
     }
 
+    static var title: String {
+        NSLocalizedString("FEED_VIEW_TITLE",
+                          tableName: "Feed",
+                          bundle: Bundle(for: FeedPresenter.self),
+                          comment: "Title of the feed screen")
+    }
+
     init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.feedView = feedView
         self.loadingView = loadingView
@@ -106,6 +113,10 @@ final class FeedPresenterTest: XCTestCase {
         sut.didFinishLoadingFeed(with: anyNSError())
 
         XCTAssertEqual(view.messages, [.display(errorMessage: localized("FEED_VIEW_CONNECTION_ERROR")), .display(isLoading: false)])
+    }
+
+    func test_title_isLocalized() {
+        XCTAssertEqual(FeedPresenter.title, localized("FEED_VIEW_TITLE"))
     }
 
     // MARK: - Helpers
