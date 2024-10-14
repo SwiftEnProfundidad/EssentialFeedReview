@@ -5,6 +5,7 @@
 //  Created by Juan Carlos merlos albarracin on 23/9/24.
 //
 
+import EssentialFeed
 import Foundation
 
 struct FeedImageViewModel<Image> {

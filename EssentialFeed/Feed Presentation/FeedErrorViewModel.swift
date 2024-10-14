@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+public struct FeedErrorViewModel {
+    public let errorMessage: String?
+
+    static var noError: FeedErrorViewModel {
+        FeedErrorViewModel(errorMessage: nil)
+    }
+
+    static func error(message: String) -> FeedErrorViewModel {
+        FeedErrorViewModel(errorMessage: message)
+    }
+}

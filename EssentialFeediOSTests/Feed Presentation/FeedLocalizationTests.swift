@@ -5,6 +5,7 @@
 //  Created by Juan Carlos merlos albarracin on 25/9/24.
 //
 
+import EssentialFeed
 @testable import EssentialFeediOS
 import XCTest
 
