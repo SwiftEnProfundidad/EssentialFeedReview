@@ -926,7 +926,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F5F2CB440BC001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -944,7 +944,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F602CB440C7001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -962,7 +962,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F612CB440D7001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -980,7 +980,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F622CB440E6001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -998,7 +998,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F632CB440F2001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1016,7 +1016,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
