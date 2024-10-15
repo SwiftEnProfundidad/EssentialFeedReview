@@ -48,6 +48,7 @@
 /* Begin PBXFileReference section */
 		B43335552CBDA84D00612107 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43335562CBDA84D00612107 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4865C6C2CBE9DDD00006F81 /* EssentialFeedApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = EssentialFeedApp.xcodeproj; sourceTree = "<group>"; };
 		B49DE8C22CBD9F04000C64F5 /* EssentialFeedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49DE8D82CBD9F07000C64F5 /* EssentialFeedAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B49DE8E22CBD9F07000C64F5 /* EssentialFeedAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +119,13 @@
 				B43335562CBDA84D00612107 /* EssentialFeediOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4865C6D2CBE9DDD00006F81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B49DE8B92CBD9F04000C64F5 = {
@@ -248,6 +256,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B49DE8C32CBD9F04000C64F5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B4865C6D2CBE9DDD00006F81 /* Products */;
+					ProjectRef = B4865C6C2CBE9DDD00006F81 /* EssentialFeedApp.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B49DE8C12CBD9F04000C64F5 /* EssentialFeedApp */,
