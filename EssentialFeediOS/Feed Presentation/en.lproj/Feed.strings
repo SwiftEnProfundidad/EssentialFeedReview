@@ -1,0 +1,12 @@
+/* 
+  Feed.strings
+  EssentialFeed
+
+  Created by Juan Carlos merlos albarracin on 10/10/24.
+  
+*/
+
+"FEED_VIEW_TITLE" = "My Feed";
+"FEED_VIEW_CONNECTION_ERROR" = "Could not connect to the server";
+"FEED_VIEW_CONNECTION_ERROR_TITLE" = "Connection error";
+"FEED_VIEW_CONNECTION_ERROR_BUTTON" = "Retry";

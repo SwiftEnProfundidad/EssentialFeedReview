@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "8C69C9CD-D235-4E10-B833-DFD0BBA9956E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialFeed.xcodeproj",
+          "identifier" : "B4B62C5F2C8990FE00C6B870",
+          "name" : "EssentialFeedCacheIntegrationTest"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "B4B62C5F2C8990FE00C6B870",
+        "name" : "EssentialFeedCacheIntegrationTest"
+      }
+    }
+  ],
+  "version" : 1
+}
