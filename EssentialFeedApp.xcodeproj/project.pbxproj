@@ -78,11 +78,6 @@
 			path = EssentialFeedAppTests;
 			sourceTree = "<group>";
 		};
-		B49DE8E52CBD9F07000C64F5 /* EssentialFeedAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EssentialFeedAppUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +128,6 @@
 			children = (
 				B49DE8C42CBD9F04000C64F5 /* EssentialFeedApp */,
 				B49DE8DB2CBD9F07000C64F5 /* EssentialFeedAppTests */,
-				B49DE8E52CBD9F07000C64F5 /* EssentialFeedAppUITests */,
 				B43335542CBDA84D00612107 /* Frameworks */,
 				B49DE8C32CBD9F04000C64F5 /* Products */,
 			);
@@ -211,9 +205,6 @@
 			dependencies = (
 				B49DE8E42CBD9F07000C64F5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				B49DE8E52CBD9F07000C64F5 /* EssentialFeedAppUITests */,
-			);
 			name = EssentialFeedAppUITests;
 			packageProductDependencies = (
 			);
@@ -236,6 +227,7 @@
 					};
 					B49DE8D72CBD9F07000C64F5 = {
 						CreatedOnToolsVersion = 16.0;
+						LastSwiftMigration = 1600;
 						TestTargetID = B49DE8C12CBD9F04000C64F5;
 					};
 					B49DE8E12CBD9F07000C64F5 = {
@@ -512,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z273P8K3M7;
@@ -521,6 +514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = es.swiftindepth.EssentialFeedAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialFeedApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/EssentialFeedApp";
@@ -531,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Z273P8K3M7;
