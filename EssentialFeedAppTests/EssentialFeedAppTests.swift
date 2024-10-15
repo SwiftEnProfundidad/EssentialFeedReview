@@ -5,11 +5,10 @@
 //  Created by Juan Carlos merlos albarracin on 14/10/24.
 //
 
-import XCTest
 @testable import EssentialFeedApp
+import XCTest
 
 final class EssentialFeedAppTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -28,9 +27,8 @@ final class EssentialFeedAppTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
