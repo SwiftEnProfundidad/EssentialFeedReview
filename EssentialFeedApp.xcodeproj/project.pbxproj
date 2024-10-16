@@ -46,22 +46,9 @@
 		B49DE8D82CBD9F07000C64F5 /* EssentialFeedAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		B49DE8EA2CBD9F08000C64F5 /* Exceptions for "EssentialFeedApp" folder in "EssentialFeedApp" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = B49DE8C12CBD9F04000C64F5 /* EssentialFeedApp */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B49DE8C42CBD9F04000C64F5 /* EssentialFeedApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				B49DE8EA2CBD9F08000C64F5 /* Exceptions for "EssentialFeedApp" folder in "EssentialFeedApp" target */,
-			);
 			path = EssentialFeedApp;
 			sourceTree = "<group>";
 		};
