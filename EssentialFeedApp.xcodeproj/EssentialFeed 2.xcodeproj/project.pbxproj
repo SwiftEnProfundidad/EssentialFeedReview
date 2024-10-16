@@ -145,6 +145,27 @@
 			remoteGlobalIDString = B436ABFF2C33CEF7007A22A7;
 			remoteInfo = EssentialFeed;
 		};
+		B4C23AAD2CBFC45300AB8BD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B49DE8C22CBD9F04000C64F5;
+			remoteInfo = EssentialFeedApp;
+		};
+		B4C23AAF2CBFC45300AB8BD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B49DE8D82CBD9F07000C64F5;
+			remoteInfo = EssentialFeedAppTests;
+		};
+		B4C23AB12CBFC45300AB8BD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B49DE8E22CBD9F07000C64F5;
+			remoteInfo = EssentialFeedAppUITests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -245,6 +266,7 @@
 		B4B62C622C8990FE00C6B870 /* EssentialFeedCacheIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedCacheIntegrationTest.swift; sourceTree = "<group>"; };
 		B4B62C6A2C89915700C6B870 /* EssentialFeedCacheIntegrationTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeedCacheIntegrationTest.xctestplan; sourceTree = "<group>"; };
 		B4C1CFE12C4C46A800439C0B /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "EssentialFeedApp 2.xcodeproj"; sourceTree = "<group>"; };
 		B4C244E82C98243F00DAB89E /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		B4CAA3A72CA40CA900914842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		B4CAA3AA2CA4104B00914842 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
@@ -526,6 +548,7 @@
 		B4770EB02C90DA72003302F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -641,6 +664,16 @@
 				B46CF4642C64D638000DCAC1 /* SharedTestHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4C23A922CBFC45100AB8BD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4C23AAE2CBFC45300AB8BD9 /* EssentialFeedApp.app */,
+				B4C23AB02CBFC45300AB8BD9 /* EssentialFeedAppTests.xctest */,
+				B4C23AB22CBFC45300AB8BD9 /* EssentialFeedAppUITests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B4E4258F2C37D44800AE6319 /* Feed API */ = {
@@ -847,6 +880,12 @@
 			);
 			productRefGroup = B436AC012C33CEF7007A22A7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B4C23A922CBFC45100AB8BD9 /* Products */;
+					ProjectRef = B4C23A912CBFC45100AB8BD9 /* EssentialFeedApp 2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B436ABFF2C33CEF7007A22A7 /* EssentialFeed */,
@@ -858,6 +897,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B4C23AAE2CBFC45300AB8BD9 /* EssentialFeedApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = EssentialFeedApp.app;
+			remoteRef = B4C23AAD2CBFC45300AB8BD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4C23AB02CBFC45300AB8BD9 /* EssentialFeedAppTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EssentialFeedAppTests.xctest;
+			remoteRef = B4C23AAF2CBFC45300AB8BD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4C23AB22CBFC45300AB8BD9 /* EssentialFeedAppUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EssentialFeedAppUITests.xctest;
+			remoteRef = B4C23AB12CBFC45300AB8BD9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B436ABFE2C33CEF7007A22A7 /* Resources */ = {
@@ -926,7 +989,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F5F2CB440BC001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -944,7 +1007,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F602CB440C7001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -962,7 +1025,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F612CB440D7001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -980,7 +1043,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F622CB440E6001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -998,7 +1061,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 		B4F92F632CB440F2001E1D3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1016,7 +1079,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\necho \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\necho \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
+			shellScript = "#!/bin/bash\n#echo \"Running SwiftFormat during tests...\"\nexport PATH=\"/opt/homebrew/bin:$PATH\"\nPROJECT_PATH=\"/Users/juancarlosmerlosalbarracin/Documents/essential-feed-review/EssentialFeed\"\nchmod -R 777 \"$PROJECT_PATH\"\ncd \"$PROJECT_PATH\" || exit 1\n/opt/homebrew/bin/swiftformat \"$PROJECT_PATH\" --swiftversion 5.7 || exit 1\n\n#echo \"Formatted on $(date)\" > \"${SRCROOT}/swiftformat-output.txt\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
